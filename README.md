@@ -37,7 +37,7 @@ Then, with the OBS window open, you can run the Python program from the director
 python main.py
 ```
 
-which will use YOLOv3 to identify people and follow them automatically (should you activate auto mode). Edit the '''video_source''' variable in main.py to switch it to the virtual camera in OBS.  
+which will use YOLOv3 to identify people and follow them automatically (should you activate auto mode). Edit the 'video_source' variable in main.py to switch it to the virtual camera in OBS.  
 
 To control the program and activate automode, use the following keybindings:
 
