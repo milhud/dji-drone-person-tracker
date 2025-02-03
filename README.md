@@ -9,7 +9,7 @@ Requirements:
 - Python3
 - C++ 14 (or higher) 
 
-(Implements [HerrNamenlos123's C++ library for communicating via the Tello SDK 2.0 library, in accordance with his license](https://github.com/HerrNamenlos123/tello))
+(Implements [HerrNamenlos123's C++ library for communicating via the Tello SDK 2.0 library, in accordance with his license]).)
 
 ## To use:
 
@@ -18,8 +18,9 @@ First, clone this repository:
 ```.
 git clone https://github.com/milhud/dji-drone-person-tracker.git
 ```
+then download "tello.hpp" from [here](https://github.com/HerrNamenlos123/tello) and include it in the project directory.
 
-Install OpenCV library for Python:
+Ensure the OpenCV library is installed for Python:
 
 ```.
 pip install opencv
