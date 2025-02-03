@@ -1,4 +1,4 @@
-### DJI Drone Tracker & Follower
+# DJI Drone Tracker & Follower
 
 This repository contains the necessary code to detect and follow people using a DJI drone (with supported firmware).
 
@@ -31,7 +31,7 @@ Then, install MonaServer at [this link](https://github.com/MonaSolutions/MonaSer
 
 After that is set up, create an RTMP broadcast from the Tello app (click the three dots -> create broadcast). Add a remote video stream on OBS, entering this URL, and then add this video source as a virtual camera.
 
-Because the yolov3.weights file was too large, you must download it [here](https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights).
+Because the yolov3.weights file was too large, you must download it [here](https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights) and add it to the yolov3 directory.
 
 Then, with the OBS window open, you can run the Python program from the directory with:
 
@@ -62,7 +62,7 @@ To control the program and activate automode, use the following keybindings:
 
 Note: you can use the program without the drone attachment by running main.py
 
-Example:
+### Example:
 
 To compile drone_control.exe for yourself, use the following commands in terminal:
 
