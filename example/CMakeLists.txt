@@ -21,8 +21,7 @@ target_link_libraries(example tello)
 # Ensure the example target includes the tello headers and src directory
 target_include_directories(example PUBLIC 
     ${CMAKE_SOURCE_DIR}/../tello  # Include tello.hpp
-    ${CMAKE_SOURCE_DIR}/src       # Include example source files
-    ${CMAKE_SOURCE_DIR}/include   # Include additional headers (optional)
+    ${CMAKE_SOURCE_DIR}/src       # Include source files
 )
 
 # If not using MSVC (e.g., Linux), link pthread

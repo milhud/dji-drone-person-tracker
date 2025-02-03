@@ -74,4 +74,4 @@ cmake ..
 cmake --build .
 ```
 
-This will compile drone_control.exe and place it in the Debug folder.
+This will compile as example.exe and place it in the Debug folder. Rename drone_control.exe and move to the main repository folder.
