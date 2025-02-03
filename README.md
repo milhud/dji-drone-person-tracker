@@ -15,15 +15,15 @@ Requirements:
 
 First, clone this repository:
 
-```
-git clone https://github.com/milhud/dji-drone-person-tracker.git
 ```.
+git clone https://github.com/milhud/dji-drone-person-tracker.git
+```
 
 Install OpenCV library for Python:
 
-```
-pip install opencv
 ```.
+pip install opencv
+```
 
 Then, install MonaServer at [this link](https://github.com/MonaSolutions/MonaServer), and OBS [here](https://obsproject.com/download).
 
@@ -33,7 +33,7 @@ Because the yolov3.weights file was too large, you must download it [here](https
 
 Then, with the OBS window open, you can run the Python program from the directory with:
 
-```
+```.
 python main.py
 ```
 
