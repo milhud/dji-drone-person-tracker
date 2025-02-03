@@ -236,8 +236,8 @@ def track_person_and_move(frame, tracker):
 def main():
     video_source = 0 # must change depending on video source for DJI drone
     cap = cv2.VideoCapture(video_source)
-    net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
-    classes = open("coco.names").read().strip().split('\n')
+    net = cv2.dnn.readNet("yolov3/yolov3.weights", "yolov3/yolov3.cfg")
+    classes = open("yolov3/coco.names").read().strip().split('\n')
 
     tracker = Tracker(door_coord=(670, 400))
     font = cv2.FONT_HERSHEY_TRIPLEX

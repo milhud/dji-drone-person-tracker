@@ -8,6 +8,7 @@ Requirements:
 - DJI drone (Ryze Tello line)
 - Python3
 - C++ 14 (or higher) 
+- CMake (for compiling drone_control for yourself)
 
 (Implements [HerrNamenlos123's C++ library for communicating via the Tello SDK 2.0 library, in accordance with his license]).)
 
@@ -56,3 +57,21 @@ To control the program and activate automode, use the following keybindings:
 | `l`               | Rotate right                | `turn_right`           |
 | `k`               | Stop movement, land         | `land`                 |
 | `m`               | Enable auto mode            | `auto_mode = True`     |
+
+
+
+Note: you can use the program without the drone attachment by running main.py
+
+Example:
+
+To compile drone_control.exe for yourself, use the following commands in terminal:
+
+```
+cd example
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+This will compile drone_control.exe and place it in the Debug folder.
