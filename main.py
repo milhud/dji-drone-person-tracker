@@ -24,13 +24,9 @@ class Person:
 
 # class to keep track of all the people in the scene
 class Tracker:
-    def __init__(self, door_coord, door_thresh=50, append_thresh=80):
+    def __init__(self, append_thresh=80):
         self.people = []  # storing people objects
-        self.person_id = 0  # person id starts at 0
-        self.entered_people = 0  # count people who entered
-        self.exited_people = 0  # count people who left
-        self.door_coord = door_coord   
-        self.door_thresh = door_thresh  
+        self.person_id = 0  # person id starts at 0  
         self.append_thresh = append_thresh  # how close they need to be to another person to be considered the same person
         # a list of colors so we can color people differently
         self.colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
@@ -54,27 +50,9 @@ class Tracker:
                 min_dist = distances[min_index] 
                 if min_dist < self.append_thresh: # if distance less than threshold, update location
                     person.update_location(cur_coords.pop(min_index))
-
-                if min_dist < self.door_thresh: # if near door, check for entry and exit
-                    self.handle_door_entry_exit(person)
         # create new person for any remaining coordinates
         for coord in cur_coords:
             self.create_person(coord)
-
-    def handle_door_entry_exit(self, person):
-        initial_coord = person.trajectory[0] # initial and final position
-        final_coord = person.trajectory[-1]
-        initial_distance = self.calculate_distance(self.door_coord, initial_coord) # calculate distance from door
-        final_distance = self.calculate_distance(self.door_coord, final_coord)
-
-        if initial_distance < self.door_thresh and final_distance < self.door_thresh: # check if someone entered door zone
-            self.entered_people += 1
-            person.flag = 1
-
-        if initial_distance > self.door_thresh and final_distance < self.door_thresh: # flag people as having exited
-            self.exited_people += 1
-            person.flag = 1
-
 
 def plot_trajectories(frame, people):
     for person in people: # loop through each perso and tracjetories
@@ -109,7 +87,7 @@ def run_tello_command(command):
 
 
 
-def process_frame(frame, net, tracker, door_coord, font):
+def process_frame(frame, net, tracker, font):
     # does object detecting using yolo
     blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), swapRB=True, crop=False)
     net.setInput(blob)
@@ -239,7 +217,7 @@ def main():
     net = cv2.dnn.readNet("yolov3/yolov3.weights", "yolov3/yolov3.cfg")
     classes = open("yolov3/coco.names").read().strip().split('\n')
 
-    tracker = Tracker(door_coord=(670, 400))
+    tracker = Tracker()
     font = cv2.FONT_HERSHEY_TRIPLEX
     is_processing_enabled = True  # to avoid coflict, renamed flag
 
@@ -254,7 +232,7 @@ def main():
         frame = cv2.resize(frame, (1000, 750))
 
         if is_processing_enabled:
-            frame = process_frame(frame, net, tracker, door_coord=(670, 400), font=font)
+            frame = process_frame(frame, net, tracker, font=font)
 
         cv2.putText(frame, f"FPS: {1 / (time.time() - start_time):.2f}", (10, 30), font, 1.5, (0, 0, 255), 2)
         
