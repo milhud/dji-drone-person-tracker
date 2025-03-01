@@ -55,7 +55,7 @@ class Tracker:
             self.create_person(coord)
 
 def plot_trajectories(frame, people):
-    for person in people: # loop through each perso and tracjetories
+    for person in people: # loop through each person and trajectories
         prev_point = None
         for point in person.trajectory[:5]:
             x, y = point
