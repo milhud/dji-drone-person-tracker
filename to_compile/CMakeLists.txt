@@ -14,15 +14,15 @@ add_executable(drone_control ${SOURCES})
 
 target_link_libraries(drone_control tello)
 target_include_directories(drone_control PUBLIC 
-    ${CMAKE_SOURCE_DIR}/../tello  # Include tello.hpp
-    ${CMAKE_SOURCE_DIR}/src       # Include source files
+    ${CMAKE_SOURCE_DIR}/../tello  # include tello.hpp
+    ${CMAKE_SOURCE_DIR}/src       # include source files
 )
 
 if (NOT MSVC)
     target_link_libraries(drone_control pthread)
 endif()
 
-# Compiler options for C++14
+# compiler options for C++14
 if (MSVC)
     target_compile_options(drone_control PUBLIC /std:c++14)
 else()
